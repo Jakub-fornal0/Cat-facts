@@ -1,0 +1,12 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <h2>🐾 Zaloguj się 🐾</h2>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nazwa użytkownika</mat-label>
+      <input matInput [(ngModel)]="username" />
+    </mat-form-field>
+    <button mat-flat-button (click)="login()" [disabled]="!username">
+      Zaloguj
+    </button>
+  </div>
+</div>
