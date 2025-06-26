@@ -1,1 +1,15 @@
-<p>cat-facts works!</p>
+<div class="fact-wrapper">
+  <div class="logout-label" (click)="logout()">Wyloguj</div>
+
+  <div class="card-positioner">
+    <div class="card-stack top"></div>
+
+    <mat-card class="fact-card">
+      <div class="fact-content">
+        {{ currentFact() }}
+      </div>
+    </mat-card>
+
+    <div class="card-stack bottom"></div>
+  </div>
+</div>

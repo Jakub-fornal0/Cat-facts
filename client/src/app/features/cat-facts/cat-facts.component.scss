@@ -1,0 +1,87 @@
+.fact-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.card-positioner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fact-card {
+  width: 45vw;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.6;
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  position: relative;
+  word-break: break-word;
+
+  @media (max-width: 1000px) {
+    width: 90vw;
+  }
+}
+
+.card-stack {
+  width: 40vw;
+  height: 6rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.5;
+
+  @media (max-width: 1000px) {
+    width: 85vw;
+  }
+}
+
+.card-stack.top {
+  top: 0;
+  transform: translate(-50%, -60%) rotate(-2deg);
+}
+
+.card-stack.bottom {
+  bottom: 0;
+  transform: translate(-50%, 60%) rotate(2deg);
+}
+
+.fact-content {
+  margin: 0;
+  padding: 0;
+}
+
+.logout-label {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  z-index: 10;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.logout-label:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}

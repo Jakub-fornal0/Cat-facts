@@ -1,11 +1,11 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, WritableSignal, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private loggedIn = signal(false);
-  private currentUser = signal<string | null>(null);
-  isAuthenticated = this.loggedIn.asReadonly();
-  user = this.currentUser.asReadonly();
+  private readonly loggedIn: WritableSignal<boolean> = signal(false);
+  private readonly currentUser: WritableSignal<string | null> = signal(null);
+  public readonly isAuthenticated = this.loggedIn.asReadonly();
+  public readonly user = this.currentUser.asReadonly();
 
   public login(username: string): void {
     this.currentUser.set(username);
