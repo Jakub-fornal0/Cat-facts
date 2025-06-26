@@ -10,7 +10,7 @@
 .login-card {
   height: 30%;
   width: 25%;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
@@ -39,8 +39,4 @@ button[mat-flat-button] {
   width: 50%;
   font-weight: 600;
   letter-spacing: 0.5px;
-}
-
-.mat-mdc-unelevated-button:not(:disabled) {
-  background-color: #373737;
 }
