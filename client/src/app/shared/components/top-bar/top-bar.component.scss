@@ -1,0 +1,31 @@
+.top-bar {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-bar-text {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  word-break: break-word;
+}
+
+.logout-button {
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
