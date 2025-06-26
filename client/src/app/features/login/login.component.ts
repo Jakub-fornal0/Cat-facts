@@ -1,6 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -11,7 +16,7 @@ import { AuthService } from '../../core/services/auth.service';
   selector: 'login',
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -22,12 +27,20 @@ import { AuthService } from '../../core/services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  public username: string = '';
+  public usernameControl: FormControl = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(15),
+  ]);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
+  @HostListener('document:keydown.enter', ['$event'])
   public login(): void {
-    this.authService.login(this.username);
+    if (this.usernameControl.invalid) {
+      return;
+    }
+
+    this.authService.login(this.usernameControl.value!);
     this.router.navigate(['/cats']);
   }
 }
