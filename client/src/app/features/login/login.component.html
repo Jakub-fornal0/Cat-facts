@@ -1,12 +1,19 @@
 <div class="login-wrapper">
   <div class="login-card">
-    <h2>🐾 Zaloguj się 🐾</h2>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nazwa użytkownika</mat-label>
-      <input matInput [(ngModel)]="username" />
+    <h2>Zaloguj się</h2>
+    <mat-form-field appearance="outline" class="login-form-field">
+      <mat-label>Imię</mat-label>
+      <input matInput [formControl]="usernameControl" />
+      <mat-hint align="end">
+        {{ usernameControl.value?.length || 0 }}/15
+      </mat-hint>
     </mat-form-field>
-    <button mat-flat-button (click)="login()" [disabled]="!username">
-      Zaloguj
+    <button
+      mat-flat-button
+      (click)="login()"
+      [disabled]="usernameControl.invalid"
+    >
+      Zaczynamy!
     </button>
   </div>
 </div>
